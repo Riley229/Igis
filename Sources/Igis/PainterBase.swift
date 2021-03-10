@@ -57,6 +57,9 @@ open class PainterBase : PainterProtocol {
     open func onMouseMove(location:Point) {
     }
 
+    open func onMouseScroll(deltaY:Int) {
+    }
+
     open func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
     }
 

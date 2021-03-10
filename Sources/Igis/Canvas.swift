@@ -123,6 +123,8 @@ public class Canvas {
                 receptionOnWindowMouseUp(arguments:arguments)
             case "onMouseMove":
                 receptionOnMouseMove(arguments:arguments)
+            case "onMouseScroll":
+                receptionOnMouseScroll(arguments:arguments)
 
                 // Key events
             case "onKeyDown":
@@ -230,6 +232,15 @@ public class Canvas {
             return
         }
         painter.onMouseMove(location:Point(x:x, y:y))
+    }
+
+    internal func receptionOnMouseScroll(arguments:[String]) {
+        guard arguments.count == 1,
+              let deltaY = intFromDoubleString(arguments[0]) else {
+            print("ERROR: onMouseScroll requires exactly one integer or double argument")
+            return
+        }
+        painter.onMouseScroll(deltaY:deltaY)
     }
 
     internal func receptionOnKeyDown(arguments:[String]) {

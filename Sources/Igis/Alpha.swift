@@ -15,10 +15,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
 
+/// An `Alpha` object alters the opacity of items rendered on the canvas.
 public final class Alpha : CanvasObject {
+    /// A value between 0 and 1 representing opacity
     public let alphaValue : Double
 
+    /// Instantiates a new `Alpha` object from the specified AlphaValue
     public init(alphaValue:Double) {
+        self.alphaValue = alphaValue
+    }
+
+    /// Instantiates a new `Alpha` object from the specified AlphaValue
+    public init(_ alphaValue:Double) {
         self.alphaValue = alphaValue
     }
 

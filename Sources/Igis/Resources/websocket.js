@@ -66,6 +66,7 @@ function onLoad() {
     canvas.addEventListener("mouseup", onMouseUp);
     canvas.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onWindowMouseUp); // Used to handle events outside browser
+    window.addEventListener("wheel", onMouseScroll);
 
     // Frame Queue
     frameQueue = [];
@@ -269,6 +270,12 @@ function onMouseMove(event) {
     var x = event.clientX - rect.left;
     var y = event.clientY - rect.top;
     let message = "onMouseMove|" + x + "|" + y;
+    doSend(message);
+}
+
+function onMouseScroll(event) {
+    var deltaY = event.deltaY;
+    let message = "onMouseScroll|" + deltaY;
     doSend(message);
 }
 
